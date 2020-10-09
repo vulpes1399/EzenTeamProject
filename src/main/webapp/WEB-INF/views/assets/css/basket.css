@@ -1,0 +1,179 @@
+@charset "utf-8";
+
+
+#orderform {
+	width:100%;
+}
+
+#orderform hr {
+    border: 1px solid #6B4D3C;
+    width: 100%;
+    margin: auto;
+}
+
+#bsk_null-notice{
+		display:block;
+	text-align:center;
+	margin:auto;
+	line-height:300px;
+	font-size: 20px;
+	color: #464646;
+	font-weight:bold;
+}
+.row hr{
+	border: 1px solid #6B4D3C;
+    width: 100%;
+    margin: auto;
+}
+#basket_list{
+    width: 90%;
+    margin: auto;
+    min-height: 150px;
+}
+
+
+.row {
+	width: 100%;
+        padding: 5px 0 5px 0;
+}
+
+.item_info {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.basket_item {
+	
+	width:100%;
+}
+
+.basket_item img {
+    width: 142px;
+    height: 142px;
+    float: left;
+}
+
+
+.item_detail {
+	display:inline-block;
+	padding:10px;
+	 
+}
+
+.item_detail .title {
+    font-weight: bold;
+    color: #464646;
+    padding-bottom: 5px;
+}
+
+.item_detail p {
+    color: #464646;
+    font-size:15px;
+}
+.num_amount {
+    display: inline-block;
+    padding: 5px 0 5px 0; 
+}
+
+.num{
+	width:20px;
+	font-size: 15px;
+	border:none;
+	background-color: #f5f2ed;
+	text-align : right;
+}
+
+.item_count {
+         display: inline-block;
+}
+
+.prc {
+	padding: 2px 0 2px 0;
+	width:70px;
+	font-size: 15px;
+	border:none;
+	background-color: #f5f2ed;
+	text-align : right;
+}
+
+.total {
+	padding: 2px 0 2px 0;
+	width:70px;
+	font-size: 15px;
+	border:none;
+	background-color: #f5f2ed;
+	text-align : right;
+}
+
+.item_count button {
+    width: 22px;
+    height: 22px;
+    font-size: 20px;
+    position: relative;
+    top: 2px;
+    line-height: 6px;
+    border: none;
+    color: #464646;
+}
+
+#total_sum {
+	width:auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    text-align:right;
+ 
+}
+
+#all_total {
+	padding: 2px 0 2px 0;
+	width:100px;
+	font-size: 20px;
+	border:none;
+	background-color: #f5f2ed;
+	text-align : right;
+	font-weight:bold;
+}
+
+#total_sum #total_text {
+    font-weight: bold;
+    color: #464646;
+}
+
+.select_buy { 
+	display:block;
+	margin:auto;
+	width:100%;
+    padding: 20px 0 20px 0;
+    text-align:center;
+}
+
+#order_buy {
+    border: none;
+    font-size: 16px;
+    background-color: #db7f41;
+    border-radius: 2px;
+    width: 45%;
+    height: 40px;
+    display: inline-block;
+    padding: 5px;
+
+}
+
+#order_buy #slct{
+	color:white;
+}
+.select_cancel{
+	
+    border: none;
+    font-size: 16px;
+    margin-right:20px;
+    background-color: #464646;
+    border-radius: 2px;
+    color: white;
+    width: 20%;
+    height: 40px;
+    padding: 5px;
+     float:right;
+
+}

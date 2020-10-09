@@ -1,0 +1,106 @@
+@charset "utf-8";
+.delivery {
+    min-height: 480px;;
+}
+
+li {
+	font-size : 13px;
+}
+
+#nonitem {
+    border: 0;
+}
+
+/** 일자 단위 박스 */
+.item_box {
+    width: 100%;
+}
+
+#item-header {
+    padding: 8px 0 10px 3px;
+    font-size: 14px;
+    border-bottom: 1px solid #000;
+}
+
+.item_box h4 {
+    display: block;
+    padding: 8px 0 8px 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #000;
+}
+
+/** 제품 상세 */
+.item {
+    padding: 3px;
+    height:130px;
+}
+
+.item a img {
+    padding: 3px;
+    display: block;
+    width: 124px;
+    height: 124px;
+    float: left;
+}
+
+.item_detail {
+    display: inline-block;
+    width: 38%;
+    height: 130px;
+    padding: 3px;
+}
+
+#ord{
+	padding:3px;
+	font-size: 13px;
+}
+
+
+.item_detail .over {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    font-size:14px;
+    padding:2px;
+}
+button{
+	margin:auto;
+}
+.button{
+	height: 30px;
+	padding: 5px;
+}
+
+#bsk_null-notice{
+		display:block;
+	text-align:center;
+	margin:auto;
+	line-height:300px;
+	font-size: 20px;
+	color: #464646;
+	font-weight:bold;
+}
+
+.button button {
+	display:inline-block;
+    width: 49%;
+    height: 30px;
+    color: #f5f2ed;
+    border: 0;
+    font-size: 14px;
+    border-radius: 3px;
+}
+
+.button button a {
+    color: #f5f2ed;
+  
+}
+
+.df{
+	background-color: #db7f41;
+}
+
+.cd{
+	    background-color: #464646;
+}

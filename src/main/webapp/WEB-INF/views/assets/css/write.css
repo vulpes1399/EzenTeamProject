@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+#container { width: auto;}
+
+#head { background-color: #f5f2ed;
+ 		 text-align: center; border: 1px solid #ccc; padding: 9px;
+         border-left-style: none; border-right-style: none;}
+
+#subject { padding: 3px; width: 98%; height: 30px; border-style: none; 
+		 border: 1px solid #ccc; border-radius: 5px; }
+		 
+#writer { padding: 3px; width: 98%; height: 30px; border-style: none; 
+		 border: 1px solid #ccc; border-radius: 5px; }
+		 
+#regdate { padding: 3px; width: 98%; height: 30px; border-style: none; 
+		 border: 1px solid #ccc; border-radius: 5px; }
+		 
+#content { padding: 3px; height: 350px; border-style: none;
+		   border: 1px solid #ccc; border-radius: 5px; width: 98%; }
+		   
+#button1 {font-size: 15px; color: #fff;  background-color: #db7f41; margin: 10px; height: 30px; width: 40%; text-align: center; line-height: 25px; 
+				border-radius: 2px; padding: 0; padding-top: 2px; border: none;}
+				
+#button2 {font-size: 15px; color: #fff;  background-color: #464646; margin: 10px; height: 30px; width: 40%; text-align: center; line-height: 25px; 
+				border-radius: 2px; padding: 0; padding-top: 2px; border: none;}
+				
+#bottom { display: block; width: 100%; text-align: center; }

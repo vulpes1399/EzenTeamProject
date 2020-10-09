@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 이 XML의 구조대로 구현될 클래스의 이름 => Impl클래스를 대체한다. -->
+<mapper namespace="Inquiry_bbsMapper">
+	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+	<resultMap id="inquiry_bbsMap" type="study.spring.overwatch.model.Inquiry_bbs">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="inq_bbs_no" column="inq_bbs_no" />
+		<result property="members_user_no" column="members_user_no" />
+		<result property="type" column="type" />
+		<result property="writer" column="writer" />
+		<result property="subject" column="subject" />
+		<result property="content" column="content" />
+		<result property="reg_date" column="reg_date" />
+		<result property="edit_date" column="edit_date" />
+	</resultMap>
+
+	<!-- 단일행 조회를 위한 기능 정의 <select id="메서드이름에 해당하는 식별자" parameterType="파라미터의 
+		데이터 타입(Beans의 클래스명)" resultMap="리턴될 Beans이름"> -->
+	<select id="selectInquiry_bbsItem"
+		parameterType="study.spring.overwatch.model.Inquiry_bbs" resultMap="inquiry_bbsMap">
+		<!-- "#{변수명}" 으로 표시된 곳에 멤버변수가 치환된다. -->
+		SELECT inq_bbs_no, members_user_no, type, writer, subject, content,
+		 reg_date, edit_date FROM inquiry_bbs WHERE inq_bbs_no=#{inq_bbs_no};
+	</select>
+	
+<!-- 다중행 조회를 위한 기능 정의 <select id="메서드이름에 해당하는 식별자" resultMap="리턴될 Beans이름"> -->
+	<select id="selectInquiry_bbsList" resultMap="inquiry_bbsMap">
+		<!-- 이 안에서 처리할 SQL문을 명시한다. -->
+		SELECT inq_bbs_no, members_user_no, type, writer, subject, content,
+		 reg_date, edit_date FROM inquiry_bbs
+		<where>
+			<if test="members_user_no != null and members_user_no != ''">
+				members_user_no LIKE concat('%', #{members_user_no}, '%')
+			</if>
+			<if test="type != null and type != ''">
+				OR type LIKE concat('%', #{type}, '%')
+			</if>
+			<if test="writer != null and writer != ''">
+				OR writer LIKE concat('%', #{writer}, '%')
+			</if>
+			<if test="subject != null and subject != ''">
+				OR subject LIKE concat('%', #{subject}, '%')
+			</if>
+			<if test="content != null and content != ''">
+				OR content LIKE concat('%', #{content}, '%')
+			</if>
+			<if test="reg_date != null and reg_date != ''">
+				OR reg_date LIKE concat('%', #{reg_date}, '%')
+			</if>
+			<if test="edit_date != null and edit_date != ''">
+				OR edit_date LIKE concat('%', #{edit_date}, '%')
+			</if>
+		</where>
+		ORDER BY inq_bbs_no DESC
+		
+		<if test="listCount > 0">
+			LIMIT #{offset}, #{listCount}
+		</if>
+	</select>
+	
+
+
+	<!-- 데이터 저장을 위한 기능 정의 <insert id="메서드이름에 해당하는 식별자" parameterType="파라미터의 
+		데이터 타입(Beans의 클래스명)" useGeneratedKeys="자동증가 일련번호값 리턴 여부" keyProperty="자동증가 
+		일련번호 컬럼명"> -->
+	<insert id="insertInquiry_bbs"
+		parameterType="study.spring.overwatch.model.Inquiry_bbs" useGeneratedKeys="true"
+		keyProperty="inq_bbs_no">
+		<!-- "#{변수명}" 으로 표시된 곳에 Beans의 멤버변수가 치환된다. -->
+		INSERT INTO inquiry_bbs (members_user_no, type, writer, subject, content, reg_date, edit_date) 
+		VALUES (#{members_user_no}, 'Q', #{writer}, #{subject}, #{content}, now(), now());
+	</insert>
+
+	<!-- 데이터 삭제를 위한 기능 정의 <delete id="메서드이름에 해당하는 식별자" parameterType="파라미터의 
+		데이터 타입(Beans의 클래스명)"> -->
+	<delete id="deleteInquiry_bbs"
+		parameterType="study.spring.overwatch.model.Inquiry_bbs">
+		<!-- "#{변수명}" 으로 표시된 곳에 Beans의 멤버변수가 치환된다. -->
+		DELETE FROM inquiry_bbs WHERE inq_bbs_no=#{inq_bbs_no};
+	</delete>
+
+	<!-- 데이터 갱신을 위한 기능 정의 <update id="메서드이름에 해당하는 식별자" parameterType="파라미터의 
+		데이터 타입(Beans의 클래스명)"> -->
+	<update id="updateInquiry_bbs"
+		parameterType="study.spring.overwatch.model.Inquiry_bbs">
+		<!-- "#{변수명}" 으로 표시된 곳에 Beans의 멤버변수가 치환된다. -->
+		UPDATE inquiry_bbs SET subject=#{subject}, content=#{content}
+		WHERE inq_bbs_no=#{inq_bbs_no};
+	</update>
+
+
+<!-- 데이터 수 조회하기  -->
+    <select id="selectCountInquiry_bbs" 
+            parameterType="study.spring.overwatch.model.Inquiry_bbs"
+            resultType="int">
+        SELECT COUNT(*) FROM inquiry_bbs
+	<where>
+			<if test="members_user_no != null and members_user_no != ''">
+				members_user_no LIKE concat('%', #{members_user_no}, '%')
+			</if>
+			<if test="type != null and type != ''">
+				OR type LIKE concat('%', #{type}, '%')
+			</if>
+			<if test="writer != null and writer != ''">
+				OR writer LIKE concat('%', #{writer}, '%')
+			</if>
+			<if test="subject != null and subject != ''">
+				OR subject LIKE concat('%', #{subject}, '%')
+			</if>
+			<if test="content != null and content != ''">
+				OR content LIKE concat('%', #{content}, '%')
+			</if>
+			<if test="reg_date != null and reg_date != ''">
+				OR reg_date LIKE concat('%', #{reg_date}, '%')
+			</if>
+			<if test="edit_date != null and edit_date != ''">
+				OR edit_date LIKE concat('%', #{edit_date}, '%')
+			</if>
+		</where>
+    </select>
+</mapper>

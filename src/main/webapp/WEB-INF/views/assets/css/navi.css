@@ -1,0 +1,178 @@
+@charset "utf-8";
+
+/** ----------- navi 전체 요소 ---------------*/
+#navi.active {
+    right: 0;
+}
+
+#navi {
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 260px;
+    right: -260px;
+    height: 100%;
+    z-index: 1057;
+    background-color: #f5f2ed;
+    transition: all 0.3s;
+}
+
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1056;
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+
+
+/** ----------- navi-header 세부 요소 ---------------*/
+#navi-header {
+    text-align: center;
+    padding: 5px;
+}
+
+#navi-header a,span {
+    display: inline-block;
+}
+
+#close {
+    font-size: 24px;
+}
+
+#cart {
+    font-size: 20px;
+}
+
+#navi-header h2 {
+    font-size: 24px;
+    color: #db7f41;
+    padding: 5px 10px;
+}
+
+/** ----------- navi-button 세부 요소 ---------------*/
+.navi-button {
+    padding: 15px 0;
+    width: 100%;
+}
+
+.navi-button div {
+    float: left;
+    width: 50%;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+
+}
+
+.navi-button a {
+    font-size: 20px;
+    color: #f5f2ed;
+    width: auto;
+    display: block;
+    font-weight: bold;
+}
+.navi-button input {
+    font-size: 20px;
+    color: #f5f2ed;
+    width: auto;
+    display: block;
+    font-weight: bold;
+}
+
+.navi-button div:first-child {
+    background-color: #db7f41;
+}
+
+.navi-button div:last-child {
+    background-color: #464646;
+}
+
+.logout-btn button{
+	    font-size: 20px;
+    color: #f5f2ed;
+    width: auto;
+    border:none;
+    font-weight: bold;
+    background-color: #464646;
+}
+
+/**------------------ navi > search -------------------*/
+
+#search {
+    padding: 0 0 0 5px;
+    margin: 0 5px;
+    height: 35px;
+    width: auto;
+    border: 1px solid #464646;
+    background-color: #fff;
+}
+
+#search input {
+    font-size: 14px;
+    width: 70%;
+    padding: 8px 3px;
+    border: 0;
+    outline: none;
+    float: left;
+}
+
+#search button {
+    width: 60px;
+    height: 100%;
+    border: 0;
+    background: #464646;
+    outline: none;
+    float: right;
+    color: #fff;
+    font-size:16px;
+}
+
+/**------------------ navi > list -------------------*/
+
+.smhead {
+    font-size: 30px;
+    text-align: left;
+    padding-left: 4px;
+    padding-bottom: 10px;
+    margin: 8px 0;
+    color: #6B4D3C;
+    border-bottom: 2px solid #464646;
+}
+
+#navi-list li {
+	height : 40px;
+}
+
+#navi-list a {
+    text-align: left;
+    display:block;
+    width: 100%;
+    height: 30px;
+    padding: 6px 4px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height : 27px;
+}
+
+#navi-list li:nth-child(2n-1) a {
+    color: #f5f2ed;
+}
+
+#navi-list a {
+    margin: 0 8px;
+}
+
+#navi-list li:nth-child(2n) {
+    background-color: #f5f2ed;
+}
+
+#navi-list li:nth-child(odd) {
+    background-color: #db7f41;
+}

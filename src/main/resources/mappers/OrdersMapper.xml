@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 이 XML의 구조대로 구현될 클래스의 이름 => Impl클래스를 대체한다. -->
+<mapper namespace="OrdersMapper">
+	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+	<resultMap id="ordersMap"
+		type="study.spring.overwatch.model.Orders">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="order_no" column="order_no" />
+		<result property="members_user_no" column="members_user_no" />
+		<result property="recive_name" column="recive_name" />
+		<result property="recive_tel" column="recive_tel" />
+		<result property="recive_postcode" column="recive_postcode" />
+		<result property="recive_addr1" column="recive_addr1" />
+		<result property="recive_addr2" column="recive_addr2" />
+		<result property="prod_no" column="prod_no" />
+		<result property="prod_name" column="prod_name" />
+		<result property="prod_price" column="prod_price" />
+		<result property="prod_qty" column="prod_qty" />
+		<result property="prod_opt" column="prod_opt" />
+		<result property="opt_price" column="opt_price" />
+		<result property="bank" column="bank" />
+		<result property="deposit_name" column="deposit_name" />
+		<result property="reg_date" column="reg_date" />
+		<result property="edit_date" column="edit_date" />
+		<result property="file_path" column="file_path" />
+		<result property="origin_name" column="origin_name" />
+		<result property="img_type" column="img_type" />
+		<result property="order_cancel" column="order_cancel" />
+		<result property="orders_order_no" column="orders_order_no" />
+			<result property="order_ok" column="order_ok" />
+		<result property="order_change" column="order_change" />
+		<result property="order_refund" column="order_refund" />
+	</resultMap>
+
+	<!-- 데이터 저장을 위한 기능 정의 <insert id="메서드이름에 해당하는 식별자" parameterType="파라미터의 
+		데이터 타입(Beans의 클래스명)" useGeneratedKeys="자동증가 일련번호값 리턴 여부" keyProperty="자동증가 
+		일련번호 컬럼명"> -->
+	<insert id="insertOrders"
+		parameterType="study.spring.overwatch.model.Orders"
+		useGeneratedKeys="true" keyProperty="order_no">
+		<!-- "#{변수명}" 으로 표시된 곳에 Beans의 멤버변수가 치환된다. -->
+		INSERT INTO orders (members_user_no, recive_name,
+		recive_tel,
+		recive_postcode, recive_addr1, recive_addr2, prod_no,
+		prod_name,
+		prod_price, prod_qty, prod_opt, opt_price, bank,
+		deposit_name,
+		reg_date, edit_date) VALUES (
+		#{members_user_no}, #{recive_name},
+		#{recive_tel}, #{recive_postcode},
+		#{recive_addr1}, #{recive_addr2},
+		#{prod_no}, #{prod_name},
+		#{prod_price}, #{prod_qty}, #{prod_opt},
+		#{opt_price}, #{bank},
+		#{deposit_name}, now(), now());
+	</insert>
+
+	<select id="selectOrdersNo"
+		parameterType="study.spring.overwatch.model.Orders" resultType="int">
+		select
+		max(order_no) from orders;
+	</select>
+
+	<select id="selectOrdersResult"
+		parameterType="study.spring.overwatch.model.Orders"
+		resultMap="ordersMap">
+		select * from orders where members_user_no = #{user_no} and
+		order_no=(select max(order_no) from orders where members_user_no =
+		#{user_no});
+	</select>
+
+	<select id="selectOrdersResultList"
+		parameterType="study.spring.overwatch.model.Orders"
+		resultMap="ordersMap">
+		select * from orders
+		INNER JOIN prod_img ON
+		prod_img.product_prod_no = orders.prod_no
+		INNER JOIN
+		delivery ON
+		orders.order_no = delivery.orders_order_no
+		where
+		members_user_no =
+		#{members_user_no} and orders.prod_no =
+		prod_img.product_prod_no AND
+		prod_img.img_type='T' AND orders.reg_date=(select max(orders.reg_date)
+		from orders where members_user_no = #{members_user_no})
+		order by
+		order_no;
+	</select>
+
+	<select id="selectDeliveryList"
+		parameterType="study.spring.overwatch.model.Orders"
+		resultMap="ordersMap">
+		select * from orders
+		INNER JOIN prod_img ON
+		prod_img.product_prod_no = orders.prod_no
+		INNER JOIN
+		delivery ON
+		orders.order_no = delivery.orders_order_no
+		where
+		members_user_no =
+		#{members_user_no} and orders.prod_no =
+		prod_img.product_prod_no AND
+		prod_img.img_type='T'
+		order by order_no
+		desc;
+	</select>
+	
+	<select id="selectOrdersList"
+		parameterType="study.spring.overwatch.model.Orders"
+		resultMap="ordersMap">
+		select * from orders
+		INNER JOIN prod_img ON
+		prod_img.product_prod_no = orders.prod_no
+		INNER JOIN
+		order_history ON
+		orders.order_no = order_history.orders_order_no
+		where
+		members_user_no =
+		#{members_user_no} and orders.prod_no =
+		prod_img.product_prod_no AND
+		prod_img.img_type='T'
+		order by order_no
+		desc;
+	</select>
+
+
+
+
+</mapper>

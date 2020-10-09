@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 이 XML의 구조대로 구현될 클래스의 이름 => Impl클래스를 대체한다. -->
+<mapper namespace="BasketMapper">
+	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+	<resultMap id="BasketMap"
+		type="study.spring.overwatch.model.Basket">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="cart_no" column="cart_no" />
+		<result property="user_no" column="user_no" />
+		<result property="prod_no" column="prod_no" />
+		<result property="prod_qty" column="prod_qty" />
+		<result property="product_prod_no" column="product_prod_no" />
+		<result property="prod_name" column="prod_name" />
+		<result property="prod_price" column="prod_price" />
+		<result property="file_path" column="file_path" />
+		<result property="origin_name" column="origin_name" />
+		<result property="img_type" column="img_type" />
+
+		<result property="prod_opt" column="prod_opt" />
+		<result property="opt_price" column="opt_price" />
+		<result property="members_user_no" column="members_user_no" />
+	</resultMap>
+
+
+	<!-- 다중행 조회를 위한 기능 정의 <select id="메서드이름에 해당하는 식별자" resultMap="리턴될 Beans이름"> -->
+	<select id="selectBasketList" resultMap="BasketMap">
+		<!-- 이 안에서 처리할 SQL문을 명시한다. -->
+		SELECT cart_no, user_no, prod_no, product.prod_name, file_path, origin_name,
+		prod_price, prod_qty, cart.prod_opt,
+		cart.opt_price
+		FROM Cart INNER JOIN product ON product.prod_no =
+		cart.product_prod_no
+		INNER JOIN members ON members.user_no =
+		cart.members_user_no
+		INNER JOIN prod_img ON prod_img.product_prod_no =
+		product.prod_no
+		where cart.members_user_no = #{user_no} and
+		product.prod_no = prod_img.product_prod_no AND prod_img.img_type='T'
+		ORDER BY cart_no DESC
+	</select>
+
+
+
+
+	<!-- 데이터 저장을 위한 기능 정의 <insert id="메서드이름에 해당하는 식별자" parameterType="파라미터의 
+		데이터 타입(Beans의 클래스명)" useGeneratedKeys="자동증가 일련번호값 리턴 여부" keyProperty="자동증가 
+		일련번호 컬럼명"> -->
+	<insert id="insertBasket"
+		parameterType="study.spring.overwatch.model.Basket"
+		useGeneratedKeys="true" keyProperty="cart_no">
+		<!-- "#{변수명}" 으로 표시된 곳에 Beans의 멤버변수가 치환된다. -->
+	INSERT INTO cart (prod_qty, product_prod_no, prod_opt,
+		opt_price, members_user_no, reg_date, edit_date) VALUES (#{prod_qty}, #{product_prod_no}, #{prod_opt}, #{opt_price},
+		#{members_user_no}, now(), now());
+	</insert>
+
+	<delete id="deleteBasket"
+		parameterType="study.spring.overwatch.model.Members">
+		<!-- "#{변수명}" 으로 표시된 곳에 Beans의 멤버변수가 치환된다. -->
+		DELETE FROM cart WHERE members_user_no=#{members_user_no} and cart_no=#{cart_no};
+	</delete>
+	
+	
+	<delete id="deleteAllBasket"
+		parameterType="study.spring.overwatch.model.Members">
+		<!-- "#{변수명}" 으로 표시된 곳에 Beans의 멤버변수가 치환된다. -->
+		DELETE FROM cart WHERE members_user_no=#{user_no};
+	</delete>
+
+
+</mapper>
+
+
+

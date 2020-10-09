@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 이 XML의 구조대로 구현될 클래스의 이름 => Impl클래스를 대체한다. -->
+<mapper namespace="MembersMapper">
+	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+	<resultMap id="membersMap"
+		type="study.spring.overwatch.model.Members">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="user_no" column="user_no" />
+		<result property="user_name" column="user_name" />
+		<result property="user_id" column="user_id" />
+		<result property="user_pw" column="user_pw" />
+		<result property="email" column="email" />
+		<result property="tel" column="tel" />
+		<result property="postcode" column="postcode" />
+		<result property="addr1" column="addr1" />
+		<result property="addr2" column="addr2" />
+		<result property="is_out" column="is_out" />
+		<result property="reg_date" column="reg_date" />
+		<result property="edit_date" column="edit_date" />
+	</resultMap>
+
+	<!-- 단일행 조회를 위한 기능 정의 <select id="메서드이름에 해당하는 식별자" parameterType="파라미터의 
+		데이터 타입(Beans의 클래스명)" resultMap="리턴될 Beans이름"> -->
+	<select id="selectMembersItem"
+		parameterType="study.spring.overwatch.model.Members"
+		resultMap="membersMap">
+		<!-- "#{변수명}" 으로 표시된 곳에 멤버변수가 치환된다. -->
+		SELECT user_no, user_name, user_id, user_pw, email, tel, postcode,
+		addr1, addr2, is_out, reg_date, edit_date FROM members WHERE
+		user_no=#{user_no};
+	</select>
+
+	<!-- 다중행 조회를 위한 기능 정의 <select id="메서드이름에 해당하는 식별자" resultMap="리턴될 Beans이름"> -->
+	<select id="selectMembersList" resultMap="membersMap">
+		<!-- 이 안에서 처리할 SQL문을 명시한다. -->
+		SELECT user_no, user_name, user_id, user_pw, email, tel, postcode,
+		addr1, addr2, is_out, reg_date, edit_date FROM members
+		<where>
+			<if test="user_name != null and user_name != ''">
+				user_name LIKE concat('%', #{user_name}, '%')
+			</if>
+			<if test="user_id != null and user_id != ''">
+				OR user_id LIKE concat('%', #{user_id}, '%')
+			</if>
+			<if test="user_pw != null and user_pw != ''">
+				OR user_pw LIKE concat('%', #{user_pw}, '%')
+			</if>
+			<if test="email != null and email != ''">
+				OR email LIKE concat('%', #{email}, '%')
+			</if>
+			<if test="tel != null and tel != ''">
+				OR tel LIKE concat('%', #{tel}, '%')
+			</if>
+			<if test="postcode != null and postcode != ''">
+				OR postcode LIKE concat('%', #{postcode}, '%')
+			</if>
+			<if test="addr1 != null and addr1 != ''">
+				OR addr1 LIKE concat('%', #{addr1}, '%')
+			</if>
+			<if test="addr2 != null and addr2 != ''">
+				OR addr2 LIKE concat('%', #{addr2}, '%')
+			</if>
+			<if test="is_out != null and is_out != ''">
+				OR is_out LIKE concat('%', #{is_out}, '%')
+			</if>
+			<if test="reg_date != null and reg_date != ''">
+				OR reg_date LIKE concat('%', #{reg_date}, '%')
+			</if>
+			<if test="edit_date != null and edit_date != ''">
+				OR edit_date LIKE concat('%', #{edit_date}, '%')
+			</if>
+		</where>
+		ORDER BY user_no DESC
+	</select>
+
+	<!-- 데이터 저장을 위한 기능 정의 <insert id="메서드이름에 해당하는 식별자" parameterType="파라미터의 
+		데이터 타입(Beans의 클래스명)" useGeneratedKeys="자동증가 일련번호값 리턴 여부" keyProperty="자동증가 
+		일련번호 컬럼명"> -->
+	<insert id="insertMembers"
+		parameterType="study.spring.overwatch.model.Members"
+		useGeneratedKeys="true" keyProperty="user_no">
+
+		INSERT INTO members (user_no, user_name, user_id, user_pw, email, tel,
+		postcode, addr1, addr2, is_out, reg_date, edit_date) VALUES
+		(#{user_no},
+		#{user_name}, #{user_id}, #{user_pw}, #{email}, #{tel},
+		#{postcode}, #{addr1}, #{addr2}, #{is_out},
+		now(), now());
+	</insert>
+
+	<!-- 데이터 삭제를 위한 기능 정의 <delete id="메서드이름에 해당하는 식별자" parameterType="파라미터의 
+		데이터 타입(Beans의 클래스명)"> -->
+	<delete id="deleteMembers"
+		parameterType="study.spring.overwatch.model.Members">
+		<!-- "#{변수명}" 으로 표시된 곳에 Beans의 멤버변수가 치환된다. -->
+		DELETE FROM members WHERE user_no=#{user_no};
+	</delete>
+
+
+	<!-- 데이터 수 조회하기 -->
+	<select id="selectCountMembers"
+		parameterType="study.spring.overwatch.model.Members" resultType="int">
+		SELECT COUNT(*) FROM members
+		<where>
+			<if test="user_name != null and user_name != ''">
+				user_name LIKE concat('%', #{user_name}, '%')
+			</if>
+			<if test="user_id != null and user_id != ''">
+				OR user_id LIKE concat('%', #{user_id}, '%')
+			</if>
+			<if test="user_pw != null and user_pw != ''">
+				OR user_pw LIKE concat('%', #{user_pw}, '%')
+			</if>
+			<if test="email != null and email != ''">
+				OR email LIKE concat('%', #{email}, '%')
+			</if>
+			<if test="tel != null and tel != ''">
+				OR tel LIKE concat('%', #{tel}, '%')
+			</if>
+			<if test="postcode != null and postcode != ''">
+				OR postcode LIKE concat('%', #{postcode}, '%')
+			</if>
+			<if test="addr1 != null and addr1 != ''">
+				OR addr1 LIKE concat('%', #{addr1}, '%')
+			</if>
+			<if test="addr2 != null and addr2 != ''">
+				OR addr2 LIKE concat('%', #{addr2}, '%')
+			</if>
+			<if test="is_out != null and is_out != ''">
+				OR is_out LIKE concat('%', #{is_out}, '%')
+			</if>
+			<if test="reg_date != null and reg_date != ''">
+				OR reg_date LIKE concat('%', #{reg_date}, '%')
+			</if>
+			<if test="edit_date != null and edit_date != ''">
+				OR edit_date LIKE concat('%', #{edit_date}, '%')
+			</if>
+		</where>
+	</select>
+
+	<select id="selectUser"
+		parameterType="study.spring.overwatch.model.Members"
+		resultMap="membersMap">
+		SELECT * FROM members WHERE user_id = #{user_id};
+	</select>
+
+
+	<select id="selectUserInfo"
+		parameterType="study.spring.overwatch.model.Members"
+		resultMap="membersMap">
+		SELECT * FROM members WHERE user_no = #{user_no};
+	</select>
+
+	<!-- 비밀번호 업데이트 -->
+	<update id="updatePassword"
+		parameterType="study.spring.overwatch.model.Members">
+
+		UPDATE members SET user_pw=#{user_pw} WHERE user_no=#{user_no};
+	</update>
+
+	<!-- 이메일 업데이트 -->
+	<update id="updateEmail"
+		parameterType="study.spring.overwatch.model.Members">
+
+		UPDATE members SET email=#{email} WHERE user_no=#{user_no};
+	</update>
+
+	<!-- 연락처 업데이트 -->
+	<update id="updateTel"
+		parameterType="study.spring.overwatch.model.Members">
+
+		UPDATE members SET tel=#{tel} WHERE user_no=#{user_no};
+	</update>
+
+	<!-- 연락처 업데이트 -->
+	<update id="updateAddr"
+		parameterType="study.spring.overwatch.model.Members">
+
+		UPDATE members SET postcode=#{postcode}, addr1=#{addr1}, addr2=#{addr2}
+		WHERE user_no=#{user_no};
+	</update>
+
+
+<!-- 아이디 찾기 -->
+	<select id="selectFindId"
+		parameterType="study.spring.overwatch.model.Members"
+		resultMap="membersMap">
+		SELECT user_id FROM members WHERE user_name = #{user_name} and email = #{email};
+	</select>
+	
+	<!-- 비밀번호 찾기 -->
+	<select id="selectFindPw"
+		parameterType="study.spring.overwatch.model.Members"
+		resultMap="membersMap">
+		SELECT user_pw FROM members WHERE user_id = #{user_id} and email = #{email};
+	</select>
+
+
+</mapper>

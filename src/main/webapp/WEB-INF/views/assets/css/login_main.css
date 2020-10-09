@@ -1,0 +1,70 @@
+@charset "utf-8";
+
+#header {
+
+    padding-bottom: 15px;
+}
+
+#login_f {
+    padding: 0 10px 0 10px;
+}
+
+.form_control{
+    display: block;
+    margin: auto;
+    border: none;
+    height: 40px;
+    width: 100%;
+    background-color: #f5f2ed;
+    font-size: 15px;
+    text-indent: 10px;
+    font-weight: bold;
+    color: #6B4D3C;
+}
+
+.new_box {
+    border: 1px solid #6B4D3C;
+    height: 40px;
+}
+
+.new_box:nth-child(1){
+    border-bottom: none;
+}
+
+.btn {
+    width: 100%;
+    border: none;
+    background-color: #db7f41;
+    font-size: 18px;
+    color: #f5f2ed;
+    height: 40px;
+    font-weight: bold;
+}
+
+
+
+.join_link {
+    display: block;
+    float: left;
+    width: 49.8%;
+    text-align: center;
+
+}
+
+#sign_up_link {
+    margin-top: 15px;
+    font-size: 14px;
+    border-right: 1px solid #6B4D3C;
+
+}
+
+#id_pw_link {  
+
+    margin-top: 15px;
+    font-size: 14px;
+
+}
+
+.join_link a{
+    color: #464646;
+}

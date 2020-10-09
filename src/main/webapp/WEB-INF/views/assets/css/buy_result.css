@@ -1,0 +1,239 @@
+@charset "utf-8";
+
+.form-horizontal {
+    width: 95%;
+    margin: auto;
+    max-width: 580px;
+
+}
+
+.buy_result_info {
+    border: 1px solid #db7f41;
+    padding: 0 20px 20px 20px;
+    margin-bottom: 10px;
+}
+
+/* Float 마감제 */
+.form-group:after {
+    content: '';
+    display: block;
+    clear: both;
+    float: none;
+}
+
+.form-group {
+    width: 100%;
+}
+
+
+.form-control {
+    font-weight: bold;
+
+}
+
+
+h3 {
+    padding-top: 20px;
+    padding-bottom: 15px;
+    color: #464646;
+}
+
+h4 {
+    padding: 0 10px 10px 10px;
+    color: #464646;
+    text-indent: 5px;
+}
+
+.form-control {
+    border: none;
+    background-color: #f5f2ed;
+}
+
+/* <input>태그가 배치되는 박스의 처리 */
+.col-md-10 {
+    width: 100%;
+    font-size: 14px;
+    color: #464646;
+    font-weight: bold;
+    text-indent: 10px;
+    padding-bottom: 10px;
+}
+
+.buy_result_info p {
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+    text-indent: 15px;
+}
+
+#orderform {
+    width: 100%;
+}
+
+hr {
+    border: 1px solid #6B4D3C;
+    width: 100%;
+    margin: auto;
+}
+
+#basket_list {
+    width: 90%;
+    margin: auto;
+    padding: 0 10px 30px 10px;
+}
+
+#basket_null h3 {
+    position: relative;
+    top: 150px;
+    left: 60px;
+    color: #464646;
+}
+
+.row {
+    width: 100%;
+    padding: 5px 0 5px 0;
+}
+
+.item_info {
+    padding: 10px 0 0 10px;
+}
+
+.basket_item {
+
+    width: 100%;
+}
+
+.basket_item img {
+    width: 35%;
+    height: 35%;
+    float: left;
+    padding-bottom: 15px;
+}
+
+
+.item_detail {
+    float: left;
+    padding: 0 0 10px 15px;
+    width: 55%;
+}
+
+.item_detail .title {
+    font-weight: bold;
+    color: #464646;
+    padding-bottom: 5px;
+}
+
+.item_detail p {
+    color: #464646;
+    font-size: 15px;
+}
+
+.num {
+    display: inline-block;
+    padding: 5px 0 5px 0;
+}
+
+.item_count {
+    display: inline-block;
+}
+
+.item_count input {
+    width: 17px;
+    text-align: right;
+    border: none;
+    background-color: #f5f2ed;
+}
+
+.sum input {
+    border: none;
+    background-color: #f5f2ed;
+    width: 100px;
+}
+
+#all_sum {
+    float: right;
+    font-weight: bold;
+}
+
+#all_total {
+	border:none;
+	background-color: #f5f2ed;
+	width: 66px;
+	font-weight:bold;
+	text-align: right;
+}
+
+#total_sum {
+    width: 60%;
+    height: 20px;
+    text-align: right;
+    background-color: #f5f2ed;
+    border: none;
+
+}
+
+#order_method {
+    border: 1px solid #db7f41;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#total_sum #total_text {
+    font-weight: bold;
+    color: #464646;
+}
+
+#array {
+    font-size: 14px;
+    color: #464646;
+    font-weight: bold;
+    padding: 10px 10px 5px 30px;
+    float: left;
+}
+
+#bank_drop {
+    background-color: #f5f2ed;
+    border: 1px solid #db7f41;
+}
+
+#order_name {
+    font-size: 14px;
+    color: #464646;
+    padding: 10px 10px 10px 30px;
+    float: left;
+    font-weight: bold;
+}
+
+#last_btn {
+	max-width:580px;
+	margin:auto;
+}
+
+#ist_name {
+    width: 83px;
+    height: 17px;
+    background-color: #f5f2ed;
+    border: 1px solid #db7f41;
+
+}
+
+.last_select {
+    float: left;
+    border: none;
+    color: #f5f2ed;
+    height: 40px;
+    font-size: 16px;
+    margin-bottom: 30px;
+
+}
+
+#link_my_order {
+    background-color: #db7f41;
+    width: 50%;
+
+}
+
+#link_index {
+    background-color: #464646;
+    width: 50%;
+}

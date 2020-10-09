@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 이 XML의 구조대로 구현될 클래스의 이름 => Impl클래스를 대체한다. -->
+<mapper namespace="Item_inq_bbsMapper">
+	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+	<resultMap id="item_inq_bbsMap"
+		type="study.spring.overwatch.model.Item_inq_bbs">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="item_inq_no" column="item_inq_no" />
+		<result property="type" column="type" />
+		<result property="writer" column="writer" />
+		<result property="subject" column="subject" />
+		<result property="content" column="content" />
+		<result property="product_prod_no" column="product_prod_no" />
+		<result property="members_user_no" column="members_user_no" />
+		<result property="reg_date" column="reg_date" />
+		<result property="edit_date" column="edit_date" />
+	</resultMap>
+
+	<!-- 단일행 조회를 위한 기능 정의 <select id="메서드이름에 해당하는 식별자" parameterType="파라미터의 
+		데이터 타입(Beans의 클래스명)" resultMap="리턴될 Beans이름"> -->
+	<select id="selectItem_inq_bbsItem"
+		parameterType="study.spring.overwatch.model.Item_inq_bbs"
+		resultMap="item_inq_bbsMap">
+		<!-- "#{변수명}" 으로 표시된 곳에 멤버변수가 치환된다. -->
+		SELECT item_inq_no, type, writer, subject, content, product_prod_no,
+		members_user_no,
+		reg_date, edit_date FROM item_inq_bbs WHERE
+		item_inq_no=#{item_inq_no};
+	</select>
+
+	<!-- 다중행 조회를 위한 기능 정의 <select id="메서드이름에 해당하는 식별자" resultMap="리턴될 Beans이름"> -->
+	<select id="selectItem_inq_bbsList" resultMap="item_inq_bbsMap">
+		<!-- 이 안에서 처리할 SQL문을 명시한다. -->
+		SELECT item_inq_no, type, writer, subject, content, product_prod_no,
+		members_user_no, reg_date, edit_date FROM item_inq_bbs 
+		WHERE product_prod_no=#{product_prod_no}
+		ORDER BY item_inq_no DESC
+
+	</select>
+
+	<!-- 데이터 저장을 위한 기능 정의 <insert id="메서드이름에 해당하는 식별자" parameterType="파라미터의 
+		데이터 타입(Beans의 클래스명)" useGeneratedKeys="자동증가 일련번호값 리턴 여부" keyProperty="자동증가 
+		일련번호 컬럼명"> -->
+	<insert id="insertItem_inq_bbs"
+		parameterType="study.spring.overwatch.model.Item_inq_bbs"
+		useGeneratedKeys="true" keyProperty="item_inq_no">
+		<!-- "#{변수명}" 으로 표시된 곳에 Beans의 멤버변수가 치환된다. -->
+		INSERT INTO item_inq_bbs (type, writer, subject, content, product_prod_no, members_user_no, reg_date, edit_date)
+		VALUES ('Q', #{writer}, #{subject}, #{content}, #{product_prod_no}, #{members_user_no}, now(), now());
+	</insert>
+
+	<!-- 데이터 삭제를 위한 기능 정의 <delete id="메서드이름에 해당하는 식별자" parameterType="파라미터의 
+		데이터 타입(Beans의 클래스명)"> -->
+	<delete id="deleteItem_inq_bbs"
+		parameterType="study.spring.overwatch.model.Item_inq_bbs">
+		<!-- "#{변수명}" 으로 표시된 곳에 Beans의 멤버변수가 치환된다. -->
+		DELETE FROM item_inq_bbs WHERE item_inq_no=#{item_inq_no};
+	</delete>
+
+	<!-- 데이터 갱신을 위한 기능 정의 <update id="메서드이름에 해당하는 식별자" parameterType="파라미터의 
+		데이터 타입(Beans의 클래스명)"> -->
+	<update id="updateItem_inq_bbs"
+		parameterType="study.spring.overwatch.model.Item_inq_bbs">
+		<!-- "#{변수명}" 으로 표시된 곳에 Beans의 멤버변수가 치환된다. -->
+		UPDATE item_inq_bbs SET subject=#{subject}, content=#{content}
+		WHERE item_inq_no=#{item_inq_no};
+	</update>
+<!-- 데이터 수 조회하기  -->
+    <select id="selectCountItem_inq_bbs" 
+            parameterType="study.spring.overwatch.model.Item_inq_bbs"
+            resultType="int">
+        SELECT COUNT(*) FROM item_inq_bbs
+		<where>
+			<if test="type != null and type != ''">
+				type LIKE concat('%', #{type}, '%')
+			</if>
+			<if test="writer != null and writer != ''">
+				OR writer LIKE concat('%', #{writer}, '%')
+			</if>
+			<if test="subject != null and subject != ''">
+				OR subject LIKE concat('%', #{subject}, '%')
+			</if>
+			<if test="content != null and content != ''">
+				OR content LIKE concat('%', #{content}, '%')
+			</if>
+			<if test="product_prod_no != null and product_prod_no != ''">
+				OR product_prod_no LIKE concat('%', #{product_prod_no},
+				'%')
+			</if>
+			<if test="members_user_no != null and members_user_no != ''">
+				members_user_no LIKE concat('%', #{members_user_no}, '%')
+			</if>
+			<if test="reg_date != null and reg_date != ''">
+				OR reg_date LIKE concat('%', #{reg_date}, '%')
+			</if>
+			<if test="edit_date != null and edit_date != ''">
+				OR edit_date LIKE concat('%', #{edit_date}, '%')
+			</if>
+		</where>
+    </select>
+    
+    <select id="insertItem_inq_bbsAdd"
+		parameterType="study.spring.overwatch.model.Item_inq_bbs"
+		resultMap="item_inq_bbsMap">
+		<!-- "#{변수명}" 으로 표시된 곳에 멤버변수가 치환된다. -->
+		SELECT product_prod_no FROM item_inq_bbs 
+		WHERE product_prod_no=#{product_prod_no};
+	</select>
+
+
+</mapper>

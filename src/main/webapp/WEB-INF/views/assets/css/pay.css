@@ -1,0 +1,336 @@
+@charset "utf-8";
+.form-horizontal {
+	width: 95%;
+	margin: auto;
+	max-width: 580px;
+
+}
+
+/* Float 마감제 */
+.form-group:after {
+	content: '';
+	display: block;
+	clear: both;
+	float: none;
+}
+
+.form-group {
+ width:100%;
+}
+
+
+.form-control {
+	font-weight: bold;
+	
+}
+
+
+h3 {
+	padding-top: 20px;
+	padding-bottom: 15px;
+	color: #464646;
+}
+
+h4 {
+	padding: 0 10px 10px 10px;
+	color: #464646;
+	text-indent: 5px;
+}
+
+#user_name {
+	background-color: #f5f2ed;
+	width: 96%;
+	height: 30px;
+	padding: 5px;
+	font-size: 14px;
+	float: left;
+}
+
+#recive_name {
+	background-color: #f5f2ed;
+	width: 96%;
+	height: 30px;
+	padding: 5px;
+	font-size: 14px;
+	float: left;
+}
+
+#tel {
+	background-color: #f5f2ed;
+	width: 96%;
+	height: 30px;
+	padding: 5px;
+	font-size: 14px;
+    float: left;
+    border-bottom: 1px solid #6B4D3C;
+}
+
+#recive_tel {
+	background-color: #f5f2ed;
+	width: 96%;
+	height: 30px;
+	padding: 5px;
+	font-size: 14px;
+	float: left;
+}
+
+#sample2_postcode {
+	background-color: #f5f2ed;
+	width: 68%;
+	height: 30px;
+	padding: 5px;
+	font-size: 14px;
+	float: left;
+}
+
+#sample2_address {
+	background-color: #f5f2ed;
+	width: 96%;
+	height: 30px;
+	padding: 5px;
+	font-size: 14px;
+	float: left;
+}
+
+#sample2_detailAddress {
+	background-color: #f5f2ed;
+	width: 96%;
+	height: 30px;
+	padding: 5px;
+	font-size: 14px;
+	float: left;
+	border-bottom: 1px solid #6B4D3C;
+}
+
+.form-control {
+	border: 1px solid #6B4D3C;
+	border-bottom: 1px solid #f5f2ed;
+}
+/* <input>태그가 배치되는 박스의 처리 */
+.col-md-10 {
+	width: 99.9%;
+}
+
+.small_button {
+	float: left;
+	width: 28%;
+}
+
+.btn_action {
+	color: #f5f2ed;
+	border: 1px solid #6B4D3C;
+	padding: 5px;
+	height: 42px;
+	width: 100%;
+	background-color: #6B4D3C;
+	font-size: 12px;
+}
+
+#orderform {
+	width:100%;
+}
+
+#orderform hr {
+    border: 1px solid #6B4D3C;
+    width: 100%;
+    margin: auto;
+}
+
+
+hr{
+	border: 1px solid #6B4D3C;
+    width: 100%;
+    margin: auto;
+}
+
+
+#order_method{
+	border: 1px solid #db7f41;
+	padding: 10px;
+	margin-bottom: 30px;
+}
+
+#total_sum #total_text {
+    font-weight: bold;
+    color: #464646;
+}
+
+#array {
+	font-size: 14px;
+	color: #464646;
+	font-weight: bold;
+	padding: 10px 10px 5px 30px;
+	float: left;
+}
+
+#bank_drop {
+	background-color: #f5f2ed;
+	border: 1px solid #db7f41;
+}
+
+#order_name{
+	font-size: 14px;
+	color: #464646;
+	padding: 10px 10px 10px 30px;
+	float: left;
+	font-weight: bold;
+}
+#ist_name {
+	width: 83px;
+	height: 17px;
+	background-color: #f5f2ed;
+	border: 1px solid #db7f41;
+	
+}
+
+.last_select {
+	float: left;
+	border: none;
+	color: #f5f2ed;
+	height: 40px;
+	font-size: 16px;
+	margin-bottom: 30px;
+	
+}
+
+#submit {
+	background-color: #db7f41;
+	width:50%;
+
+}
+
+#reset {
+	background-color: #464646;
+	width:50%;
+}
+
+.select_cancel{
+	
+    border: none;
+    font-size: 16px;
+    margin-right:20px;
+    background-color: #464646;
+    border-radius: 2px;
+    color: white;
+    width: 20%;
+    height: 40px;
+    padding: 5px;
+     float:right;
+
+}
+
+
+#basket_list{
+    width: 90%;
+    margin: auto;
+    min-height: 150px;
+}
+
+
+.row {
+	width: 100%;
+        padding: 5px 0 5px 0;
+}
+
+.item_info {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.basket_item {
+	
+	width:100%;
+}
+
+.basket_item img {
+    width: 130px;
+    height: 130px;
+    float: left;
+}
+
+
+.item_detail {
+	display:inline-block;
+	padding:8px;
+	 
+}
+
+.item_detail .title {
+    font-weight: bold;
+    color: #464646;
+    padding-bottom: 5px;
+}
+
+.item_detail p {
+    color: #464646;
+    font-size:15px;
+}
+.num_amount {
+    display: inline-block;
+    padding: 5px 0 5px 0; 
+}
+
+.num{
+	width:20px;
+	font-size: 15px;
+	border:none;
+	background-color: #f5f2ed;
+	text-align : right;
+}
+
+.item_count {
+         display: inline-block;
+}
+
+.prc {
+	padding: 2px 0 2px 0;
+	width:70px;
+	font-size: 15px;
+	border:none;
+	background-color: #f5f2ed;
+	text-align : right;
+}
+
+.total {
+	padding: 2px 0 2px 0;
+	width:70px;
+	font-size: 15px;
+	border:none;
+	background-color: #f5f2ed;
+	text-align : right;
+}
+
+.item_count button {
+    width: 22px;
+    height: 22px;
+    font-size: 20px;
+    position: relative;
+    top: 2px;
+    line-height: 6px;
+    border: none;
+    color: #464646;
+}
+
+#total_sum {
+	width:auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    text-align:right;
+ 
+}
+
+#all_total {
+	padding: 2px 0 2px 0;
+	width:100px;
+	font-size: 20px;
+	border:none;
+	background-color: #f5f2ed;
+	text-align : right;
+	font-weight:bold;
+}
+
+#total_sum #total_text {
+    font-weight: bold;
+    color: #464646;
+}

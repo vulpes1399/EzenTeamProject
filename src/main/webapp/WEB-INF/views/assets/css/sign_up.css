@@ -1,0 +1,183 @@
+@charset "utf-8";
+
+.form-horizontal {
+	width: 95%;
+	margin: auto;
+	max-width: 580px;
+
+}
+
+/* Float 마감제 */
+.form-group:after {
+	content: '';
+	display: block;
+	clear: both;
+	float: none;
+}
+
+.form-group {
+ width:100%;
+}
+
+.form-control {
+	font-weight: bold;
+
+}
+
+#user_id {
+	background-color: #f5f2ed;
+	width: 68%;
+	height: 30px;
+	padding: 5px;
+	font-size: 14px;
+	float: left;
+}
+
+#user_pw {
+	background-color: #f5f2ed;
+	width: 96%;
+	height: 30px;
+	padding: 5px;
+	font-size: 14px;
+	float: left;
+}
+
+#user_pw_re {
+	background-color: #f5f2ed;
+	width: 96%;
+	height: 30px;
+	padding: 5px;
+	font-size: 14px;
+	float: left;
+
+}
+
+#user_name {
+	background-color: #f5f2ed;
+	width: 96%;
+	height: 30px;
+	padding: 5px;
+	font-size: 14px;
+	float: left;
+}
+
+#email {
+	background-color: #f5f2ed;
+	width: 96%;
+	height: 30px;
+	padding: 5px;
+	font-size: 14px;
+	float: left;
+}
+
+#tel {
+	background-color: #f5f2ed;
+	width: 96%;
+	height: 30px;
+	padding: 5px;
+	font-size: 14px;
+	float: left;
+}
+
+#sample2_postcode {
+	background-color: #f5f2ed;
+	width: 68%;
+	height: 30px;
+	padding: 5px;
+	font-size: 14px;
+	float: left;
+}
+
+#sample2_address {
+	background-color: #f5f2ed;
+	width: 96%;
+	height: 30px;
+	padding: 5px;
+	font-size: 14px;
+	float: left;
+}
+
+#sample2_detailAddress {
+	background-color: #f5f2ed;
+	width: 96%;
+	height: 30px;
+	padding: 5px;
+	font-size: 14px;
+	float: left;
+	border-bottom: 1px solid #6B4D3C;
+}
+
+.form-control {
+	border: 1px solid #6B4D3C;
+	border-bottom: 1px solid #f5f2ed;
+}
+/* <input>태그가 배치되는 박스의 처리 */
+.col-md-10 {
+	width: 99.9%;
+}
+
+.small_button {
+	float: left;
+	width: 28%;
+}
+
+.btn_action {
+	color: #f5f2ed;
+	border: 1px solid #6B4D3C;
+	padding: 5px;
+	height: 42px;
+	width: 100%;
+	background-color: #6B4D3C;
+	font-size: 12px;
+}
+
+#last_btn {
+	width: 90%;
+	margin:auto;
+			padding:10px;
+}
+
+.last_select {
+	float: left;
+	border: none;
+	color: #f5f2ed;
+	height: 40px;
+	font-size: 16px;
+
+	
+}
+
+#submit {
+	background-color: #db7f41;
+	width:50%;
+
+}
+
+#reset {
+	background-color: #464646;
+	width:50%;
+}
+
+/* 글자 중앙 정렬 */
+.text-center {
+	text-align: center;
+}
+
+/* 에러 메시지에 대한 글자 색상 */
+.error {
+	color: red;
+}
+
+/* 에러가 발생한 <input>태그 */
+input.error {
+	background-color: #ffff00;
+}
+
+/* 에러메시지가 표시중인 <label>태그 */
+label.error {
+	font-size: 10px;
+	display: inline-block;
+	padding: 5px 10px;
+	margin: 0;
+	background-color: #f5f2ed;
+}

@@ -1,0 +1,118 @@
+@charset "utf-8";
+
+/** ------------------슬라이드 영역--------------------- */
+/* 슬라이드 영역의 크기. 여기서 설정한 크기 만큼 슬라이드가 표시된다. */
+#slide-container {
+    width: auto;
+    height: 200px;
+    padding: 0 0 3px 0;
+}
+
+/* 내용영역 정의 (슬라이드영역을 가득 채운다) */
+#slides .slide-contents {
+    height: 100%;
+    width: 100%;
+    display: table;
+}
+
+/** 내용영역의 컨텐츠 */
+#slides .slide-contents-cell {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px #000;
+    visibility: hidden;
+}
+
+/** -------------------상품 목록 링크 버튼-------------------- */
+.activebtn {
+    text-align: center;
+    float:left;
+    width: 25%;
+    display: block;
+    background-color: #464646;
+}
+
+#tab a:hover {
+    background-color: #db7f41;
+    color: #464646;
+}
+
+#tab li a {
+    display: block;
+    border: 1px solid #f5f2ed;
+    color: #db7f41;
+    padding: 5px 0;
+}
+
+
+hr {
+    margin: 4px;
+    color: #6B4D3C;
+}
+
+#besthead,
+#newhead {
+    display: block;
+    width: auto;
+}
+
+#besthead {
+    padding: 4px;
+}
+
+#newhead {
+    padding: 2px 4px 4px;
+}
+
+/** ----------------상품 이미지 영역---------------------- */
+.content_body{
+	margin-top: 20px;
+}
+
+.gallery li {
+    display: block;
+    width: 50%;
+    float: left;
+    
+}
+
+.gallery .thumb {
+    width: 100%;
+}
+
+.gallery .thumb img {
+    display: block;
+    width: 90%;
+    max-width: 200px;
+    height: 150px;
+    margin: auto;
+    border: 1px solid #db7f41;
+  
+
+}
+
+.gallery .text {
+    font-size: 13px;
+    display: block;
+    width: 100%;
+    height: 15px;
+    margin: auto;
+    text-align: center;
+    padding-top: 8px;
+    font-weight: bold;
+
+}
+
+.gallery .price {
+    font-size: 13px;
+    display: block;
+    width: 100%;
+    height: 15px;
+    margin: auto;
+    text-align: center;
+    padding-top: 3px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}

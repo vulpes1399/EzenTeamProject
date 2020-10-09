@@ -1,0 +1,44 @@
+@charset "utf-8";
+
+
+h2 {
+	text-indent: 5px;
+	color: #464646;
+	padding:5px;
+}
+
+.form-control{
+   display: block;
+   margin: auto;
+   border: none;
+   height: 40px;
+   width: 100%;
+   background-color: #f5f2ed;
+   font-size: 15px;
+   text-indent: 10px;
+   font-weight: bold;
+   color: #6B4D3C;
+}
+
+.find_box {
+	padding:10px;
+}
+
+.new_box{
+	margin:auto;
+   border-top: 1px solid #6B4D3C;
+   border-left: 1px solid #6B4D3C;
+   border-right: 1px solid #6B4D3C;
+}
+
+.confirm_button {
+   margin: auto;
+	width: 100%;
+   border: 1px solid #db7f41;
+   background-color: #db7f41;
+   text-align: center;
+   color: #f5f2ed;
+   height: 40px;
+   font-size: 15px;
+
+}

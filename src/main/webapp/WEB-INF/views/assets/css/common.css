@@ -1,0 +1,142 @@
+@charset "utf-8";
+
+/*-------------------기본 초기화 및 준비----------------------*/
+
+/* 전체 마패 0 폰트*/
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "나눔고딕";
+}
+
+/* 전체 a태그 초기화*/
+
+a {
+    color: #464646;
+    text-decoration: none;
+}
+
+/* 풀브라우징 */
+
+html{
+    width: 100%;
+    height: 100%;
+
+}
+
+/* 바디태그 초기화 */
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #f5f2ed;
+
+}
+
+/* ul li 초기화 마패 0*/
+ul,
+li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* 플로트 클리어 */
+.clear:after {
+    content: '';
+    clear: both;
+    float: none;
+    display: block;
+}
+
+/*---------------- 헤더부분 : 상단 바+네비게이션 버튼+페이지 제목 -----------------*/
+
+/* 상단 바*/
+#bar {
+    width: auto;
+    height: 45px;
+    background-color: #464646;
+    line-height: 50px;
+    display: block;
+    padding: 5px;
+}
+
+#gra {
+    width: auto;
+    background-color: #464646;
+    background: linear-gradient( to bottom, #464646, #f5f2ed);
+    margin: -0.3px;
+    display: block;
+    height: 6px;
+    border: none;
+
+}
+
+/* 로고 */
+
+#bar h1{
+    display:inline-block;
+}
+#bar h1 a{
+    display: inline-block;
+    color: #db7f41;
+    text-indent: 5px;
+}
+
+/* 네비게이션 버튼 */
+#bar #btn_navi {
+    float: right;
+    display: inline-block;
+    padding: 9px;
+    line-height: 17px;
+    margin-right: 5px;
+    color:#db7f41;
+}
+
+/* 페이지 제목 */
+#header h1 {
+    color: #464646;
+    padding-left: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+/*-----------------------콘테이터 부분: 내용물 입력 ----------------------*/
+
+#container {
+    max-width: 580px;
+    min-height: 480px;
+    margin: auto;
+}
+
+/*-----------------풋터----------------*/
+#footer {
+    width: auto;
+    font-size: 13px;
+    height: 100px;
+    background-color: #6B4D3C;
+    color:#f5f2ed;
+    padding: 20px;
+}
+
+
+a#move_top_btn {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    right: 2%;
+    bottom: 50px;
+    display: none;
+    z-index: 999;
+    background-color: none;
+    color: #db7f41;
+    text-align: center;
+}
+
+#top_btn{
+    text-align: center;
+    padding: 0px;
+    opacity: 0.7;
+}

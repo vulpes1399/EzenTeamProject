@@ -1,0 +1,162 @@
+@charset "utf-8";
+
+.title{
+
+	color: #464646;
+	padding-top: 15px;
+	padding-bottom: 5px;
+}
+.form-horizontal {
+	width: 95%;
+	margin: auto;
+	max-width: 580px;
+}
+
+/* Float 마감제 */
+.form-group:after {
+	content: '';
+	display: block;
+	clear: both;
+	float: none;
+}
+
+.form-group {
+ width:100%;
+}
+
+.form-control {
+	font-weight: bold;
+}
+
+#user_pw {
+	background-color: #f5f2ed;
+	width: 96%;
+	height: 30px;
+	padding: 5px;
+	font-size: 14px;
+	float: left;
+}
+
+#user_pw_new {
+	background-color: #f5f2ed;
+	float: left;
+	width: 68%;
+	height: 30px;
+	padding: 5px;
+	font-size: 14px;
+	float: left;
+	border-bottom: 1px solid #6B4D3C;
+}
+
+#email {
+	background-color: #f5f2ed;
+	width: 96%;
+	height: 30px;
+	padding: 5px;
+	font-size: 14px;
+}
+
+#email_new {
+	background-color: #f5f2ed;
+	width: 68%;
+	height: 30px;
+	padding: 5px;
+	font-size: 14px;
+	float: left;
+	border-bottom: 1px solid #6B4D3C;
+}
+
+
+#tel {
+	background-color: #f5f2ed;
+	width: 96%;
+	height: 30px;
+	padding: 5px;
+	font-size: 14px;
+
+}
+
+#tel_new {
+	background-color: #f5f2ed;
+	width: 68%;
+	height: 30px;
+	padding: 5px;
+	font-size: 14px;
+	float: left;
+	border-bottom: 1px solid #6B4D3C;
+}
+
+#sample2_postcode {
+	background-color: #f5f2ed;
+	width: 68%;
+	height: 30px;
+	padding: 5px;
+	font-size: 14px;
+	float: left;
+}
+
+#sample2_address {
+	background-color: #f5f2ed;
+	width: 96%;
+	height: 30px;
+	padding: 5px;
+	font-size: 14px;
+	float: left;
+}
+
+#sample2_detailAddress {
+	background-color: #f5f2ed;
+	width: 68%;
+	height: 30px;
+	padding: 5px;
+	font-size: 14px;
+	float: left;
+	border-bottom: 1px solid #6B4D3C;
+}
+
+
+.form-control {
+	border: 1px solid #6B4D3C;
+	border-bottom: 1px solid #f5f2ed;
+}
+
+
+/* <input>태그가 배치되는 박스의 처리 */
+.col-md-10 {
+	width: 100%;
+}
+
+.small_button {
+	float: left;
+	width: 28%;
+}
+
+.btn_action {
+	color: #f5f2ed;
+	border: 1px solid #6B4D3C;
+	padding: 5px;
+	height: 42px;
+	width: 100%;
+	background-color: #6B4D3C;
+	font-size: 12px;
+}
+
+
+#my_page_info_back{
+	width:98%;
+	margin: 20px;
+
+}
+
+#my_page_info_back_btn{
+	display: block;
+	background-color: #db7f41;
+	width: 40%;
+	margin: auto;
+	padding: 10px;
+	border: none;
+	color: #f5f2ed;
+	font-size: 16px;
+	font-weight: bold;
+}
+

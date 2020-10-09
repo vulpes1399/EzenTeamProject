@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 이 XML의 구조대로 구현될 클래스의 이름 => Impl클래스를 대체한다. -->
+<mapper namespace="List_itemMapper">
+	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+	<resultMap id="list_itemMap"
+		type="study.spring.overwatch.model.List_item">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="prod_no" column="prod_no" />
+		<result property="prod_name" column="prod_name" />
+		<result property="prod_price" column="prod_price" />
+		<result property="hit" column="hit" />
+		<result property="gender" column="gender" />
+		<result property="prod_style" column="prod_style" />
+		<result property="prod_strap" column="prod_strap" />
+		<result property="prod_size" column="prod_size" />
+		<result property="prod_move" column="prod_move" />
+		<result property="prod_opt" column="prod_opt" />
+		<result property="opt_price" column="opt_price" />
+		<result property="prod_img_no" column="prod_img_no" />
+		<result property="origin_name" column="origin_name" />
+		<result property="file_path" column="file_path" />
+		<result property="img_type" column="img_type" />
+		<result property="reg_date" column="reg_date" />
+	</resultMap>
+	<select id="selectList_itemItem" parameterType="study.spring.overwatch.model.List_item"
+		resultMap="list_itemMap">
+		SELECT prod_no, prod_name, prod_price, prod_opt, opt_price,
+		prod_img_no, origin_name, file_path, img_type
+		FROM product
+		INNER JOIN prod_img ON prod_img.product_prod_no = product.prod_no
+		WHERE prod_no=#{prod_no} AND prod_img.img_type='T'
+	</select>
+
+	<!-- 리스트 페이지 출력 -->
+	<select id="selectJoin"
+		parameterType="study.spring.overwatch.model.List_item"
+		resultMap="list_itemMap">
+
+		SELECT prod_no, prod_name, prod_price, hit, product.reg_date,
+		prod_img_no, origin_name, file_path, img_type, product_prod_no
+		FROM product INNER JOIN prod_img ON (product.prod_no =
+		prod_img.product_prod_no AND prod_img.img_type='T')
+
+		<where>
+			<if test="prod_name != null and prod_name != ''">
+				prod_name LIKE concat('%', #{prod_name}, '%')
+			</if>
+		</where>
+
+
+		ORDER BY hit DESC
+		<!-- 페이지 구현을 위한 LIMIT절 추가 -->
+		<if test="listCount > 0">
+			LIMIT #{offset}, #{listCount}
+		</if>
+	</select>
+
+	<!-- 리스트 페이지 출력 -->
+	<select id="selectJoin2"
+		parameterType="study.spring.overwatch.model.List_item"
+		resultMap="list_itemMap">
+
+		SELECT prod_no, prod_name, prod_price, hit, product.reg_date,
+		prod_img_no, origin_name, file_path, img_type, product_prod_no
+		FROM product INNER JOIN prod_img ON (product.prod_no =
+		prod_img.product_prod_no AND prod_img.img_type='T')
+		order by reg_date desc
+		<if test="listCount > 0">
+			LIMIT #{offset}, #{listCount}
+		</if>
+	</select>
+
+
+	<!-- 리스트 페이지 출력 -->
+	<select id="selectJoin3"
+		parameterType="study.spring.overwatch.model.List_item"
+		resultMap="list_itemMap">
+
+		SELECT prod_no, prod_name, prod_price, prod_opt, prod_price,
+		product.reg_date, hit, gender, prod_img_no, origin_name, file_path,
+		img_type
+		FROM product
+		INNER JOIN prod_img ON prod_img.product_prod_no = product.prod_no
+		INNER JOIN prod_detail ON product.prod_no = prod_detail.product_prod_no
+		WHERE prod_img.img_type='T' AND gender = 'M'
+		order by product.reg_date desc
+		<if test="listCount > 0">
+			LIMIT #{offset}, #{listCount}
+		</if>
+	</select>
+
+	<!-- 리스트 페이지 출력 -->
+	<select id="selectJoin4"
+		parameterType="study.spring.overwatch.model.List_item"
+		resultMap="list_itemMap">
+
+		SELECT prod_no, prod_name, prod_price, prod_opt, prod_price,
+		product.reg_date, hit, gender, prod_img_no, origin_name, file_path,
+		img_type
+		FROM product
+		INNER JOIN prod_img ON prod_img.product_prod_no = product.prod_no
+		INNER JOIN prod_detail ON product.prod_no = prod_detail.product_prod_no
+		WHERE prod_img.img_type='T' AND gender = 'W'
+		order by reg_date desc
+		<if test="listCount > 0">
+			LIMIT #{offset}, #{listCount}
+		</if>
+	</select>
+<!-- 상세페이지 상품상세 출력 -->
+	<select id="selectProdDeImg"
+		parameterType="study.spring.overwatch.model.List_item"
+		resultMap="list_itemMap">
+
+		SELECT prod_img_no, origin_name, file_path, img_type
+		FROM product
+		INNER JOIN prod_img ON prod_img.product_prod_no = product.prod_no
+		WHERE product.prod_no=#{prod_no} and prod_img.img_type='D'
+	</select>
+
+	<!-- 데이터 수 조회하기 -->
+	<select id="selectCountAll"
+		parameterType="study.spring.overwatch.model.List_item"
+		resultType="int">
+		SELECT COUNT(*) FROM product INNER JOIN prod_img ON (product.prod_no =
+		prod_img.product_prod_no AND prod_img.img_type='T')
+
+	</select>
+
+	<!-- 데이터 수 조회하기 -->
+	<select id="selectCountAll2"
+		parameterType="study.spring.overwatch.model.List_item"
+		resultType="int">
+		SELECT COUNT(*) FROM product INNER JOIN prod_img ON (product.prod_no =
+		prod_img.product_prod_no AND prod_img.img_type='T')
+
+	</select>
+	<!-- 데이터 수 조회하기 -->
+	<select id="selectCountAll3"
+		parameterType="study.spring.overwatch.model.List_item"
+		resultType="int">
+		SELECT COUNT(*) FROM product INNER JOIN prod_img ON prod_img.product_prod_no
+		= product.prod_no INNER JOIN prod_detail ON product.prod_no =
+		prod_detail.product_prod_no WHERE prod_img.img_type='T' AND gender =
+		'M'
+	</select>
+	<!-- 데이터 수 조회하기 -->
+	<select id="selectCountAll4"
+		parameterType="study.spring.overwatch.model.List_item"
+		resultType="int">
+		SELECT COUNT(*) FROM product INNER JOIN prod_img ON prod_img.product_prod_no
+		= product.prod_no INNER JOIN prod_detail ON product.prod_no =
+		prod_detail.product_prod_no WHERE prod_img.img_type='T' AND gender =
+		'W'
+	</select>
+
+
+	<!-- 데이터 수 조회하기 -->
+	<select id="selectCountAll5"
+		parameterType="study.spring.overwatch.model.List_item"
+		resultType="int">
+		SELECT COUNT(*) FROM product INNER JOIN prod_img ON (product.prod_no =
+		prod_img.product_prod_no AND prod_img.img_type='T')
+
+		<where>
+			<if test="prod_name != null and prod_name != ''">
+				prod_name LIKE concat('%', #{prod_name}, '%')
+			</if>
+		</where>
+	</select>
+
+	<!-- 데이터 수 조회하기 -->
+	<select id="selectCountAll6"
+		parameterType="study.spring.overwatch.model.List_item"
+		resultType="int">
+		SELECT COUNT(*) FROM product INNER JOIN prod_img ON (product.prod_no =
+		prod_img.product_prod_no AND prod_img.img_type='T')
+	</select>
+
+
+	<!-- 나만의 시계 출력 -->
+	<select id="selectMyWatch"
+		parameterType="study.spring.overwatch.model.List_item"
+		resultMap="list_itemMap">
+
+		SELECT prod_no, prod_name, prod_price, prod_opt, prod_price,
+		product.reg_date, hit, gender, prod_style, prod_strap, prod_size,
+		prod_move, prod_img_no, origin_name, file_path, img_type
+		FROM product
+		INNER JOIN prod_img ON prod_img.product_prod_no = product.prod_no
+		INNER JOIN prod_detail ON product.prod_no = prod_detail.product_prod_no
+		WHERE prod_img.img_type='T' AND gender = #{gender} and
+		prod_style=#{prod_style} and prod_strap = #{prod_strap} and
+		prod_size=#{prod_size} and prod_move = #{prod_move}
+		order by reg_date desc
+	</select>
+
+
+
+
+
+
+
+</mapper>

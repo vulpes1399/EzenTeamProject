@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+#su { background-color: #db7f41; text-align: center; font-size: 15px; color: #f5f2ed; margin: 10px;
+			border-style: none;	padding: 5px; border-radius: 2px; }
+#re { background-color: #464646; text-align: center; font-size: 15px; color: #f5f2ed; margin: 10px;
+			border-style: none;	padding: 5px; border-radius: 2px; }
+			
+#buts { text-align: center; }
+
+#subject, #content { width: 80%; border: 1px solid #ccc; border: none; padding: 10px; border-radius: 2px; }
+
+#content { height: 50px; }

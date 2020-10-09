@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+#title { text-align: center; border: 1px solid #ccc; border-left: none; border-right: none;
+		 padding: 10px; }
+
+#format { margin: 10px 5px; }
+
+#wr, #co { padding: 10px;}
+
+#li, #ad, #ed, #de { background-color: #db7f41; text-align: center; font-size: 15px; color: #f5f2ed; margin: 10px;
+						padding: 5px; border-radius: 2px;}
+						
+#buttons { text-align: center;  display: inline}
+
+#container { min-width: 480px;}
+
+#ed, #de {background-color: #464646; border: none;}
+
+#fo {display: inline}

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 이 XML의 구조대로 구현될 클래스의 이름 => Impl클래스를 대체한다. -->
+<mapper namespace="Order_historyMapper">
+	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+	<resultMap id="order_historyMap" type="study.spring.overwatch.model.Order_history">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="order_his_no" column="order_his_no" />
+		<result property="order_ok" column="order_ok" />
+		<result property="order_change" column="order_change" />
+		<result property="order_refund" column="order_refund" />
+		<result property="reg_date" column="reg_date" />
+		<result property="edit_date" column="edit_date" />
+	</resultMap>
+
+
+	<insert id="insertOrder_history"
+		parameterType="study.spring.overwatch.model.Order_history" useGeneratedKeys="true"
+		keyProperty="order_his_no">
+		<!-- "#{변수명}" 으로 표시된 곳에 Beans의 멤버변수가 치환된다. -->
+		INSERT INTO order_history (order_ok, order_change, order_refund, reg_date, edit_date, orders_order_no) VALUES ('N', 'N', 'N', now(), now(), #{orders_order_no});
+	</insert>
+
+	<update id="updateOrderDecide"
+		parameterType="study.spring.overwatch.model.Order_history">
+		update order_history set order_ok = 'Y' where orders_order_no =
+		#{orders_order_no};
+	</update>
+	
+	<update id="updateOrderChange"
+		parameterType="study.spring.overwatch.model.Order_history">
+		update order_history set order_change = 'Y' where orders_order_no =
+		#{orders_order_no};
+	</update>
+
+	<update id="updateOrderRefund"
+		parameterType="study.spring.overwatch.model.Order_history">
+		update order_history set order_refund = 'Y' where orders_order_no =
+		#{orders_order_no};
+	</update>
+</mapper>

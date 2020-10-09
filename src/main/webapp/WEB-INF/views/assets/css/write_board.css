@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+#table { text-align: center; border: 1px solid #dddddd; width: 100%; }
+
+#num { background-color: #db7f41; text-align: center; width: 15%; font-size: 15px; height: 35px; color: #f5f2ed; }
+
+#wri { background-color: #db7f41; text-align: center; font-size: 15px; color: #f5f2ed; }
+
+#tit { background-color: #db7f41; text-align: center; font-size: 15px; color: #f5f2ed; }
+
+#num2, #tit2, #wri2, #dat2, #cou2 { font-size: 12px; background-color: #faf4ea; height: 30px; }
+
+#but { float: right; font-size: 15px; color: #fff;  background-color: #db7f41; margin: 10px; height: 30px; width: 100px; text-align: center; line-height: 30px; 
+				border-radius: 2px; padding: 0; padding-top: 2px;}
+				
+#head { margin: 10px; }
+
+.col { height: 30px; border: 1px solid #ccc; }
+
+#container { min-height: 450px; }
+
+#fom { text-align: center; }
+
+#but1 {float: right; font-size: 15px; color: #fff;  background-color: #db7f41; margin: 10px; height: 30px; width: 100px; text-align: center; line-height: 30px; 
+				border-radius: 2px; padding: 0;  border: none;}

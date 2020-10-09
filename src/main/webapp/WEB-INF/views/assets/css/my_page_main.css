@@ -1,0 +1,151 @@
+@charset "utf-8";
+/*-----------------------콘테이너 ----------------------*/
+
+
+#user_top{
+	padding:10px;
+}
+
+#user_wellcome{
+	display:block;
+	float:left;
+	width:60%;
+	text-align: center;
+	padding:8px;
+	}
+
+#user_wellcome p span {
+    padding-left: 5px;
+    color: #db7f41;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+#user_info_link {
+    color: #f5f2ed;
+	border:none;
+	font-size:16px;
+    background-color: #db7f41;
+    padding: 10px;
+    border-radius: 1px;
+    width:30%;
+  
+}
+
+
+/*---------------------마이 페이지 메뉴 -----------------*/
+
+#my_page_group {
+    max-width: 580px;
+    margin: auto;
+    padding: 5px;
+
+}
+
+
+#my_page_group a {
+
+    float: left;
+    display: block;
+    width: 49%;
+    height: auto;
+    text-align: center;
+    border-right: 1px solid #6B4D3C;
+    border-top: 1px solid #6B4D3C;
+
+
+}
+
+#my_page_group li:nth-child(1) a {
+    border-left: 1px solid #6B4D3C;
+}
+
+#my_page_group li:nth-child(3) a {
+    border-left: 1px solid #6B4D3C;
+}
+
+#my_page_group li:nth-child(5) a {
+    border-left: 1px solid #6B4D3C;
+    border-bottom: 1px solid #6B4D3C;
+}
+
+#my_page_group li:nth-child(6) a {
+    border-bottom: 1px solid #6B4D3C;
+}
+
+#my_page_group i {
+    color: #464646;
+    padding: 20px 0 15px 0;
+    font-size: 25px;
+
+}
+
+#my_page_group span {
+    color: #464646;
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    padding-bottom: 12px;
+}
+
+
+
+/*---------최근 본 상품 --------------*/
+
+#recent_title {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    max-width: 580px;
+    margin: auto;
+}
+
+#recent_title h3 {
+    text-indent: 10px;
+    color: #464646;
+}
+
+#recent_gallery {
+    max-width: 580px;
+    margin: auto;
+
+}
+
+#recent_gallery li {
+    display: inline-block;
+    width: 33.3%;
+    float: left;
+
+}
+
+#recent_gallery .thumb img {
+    display: block;
+    width: 90%;
+    height: 90px;
+    margin: auto;
+    overflow: auto;
+
+
+}
+
+#recent_gallery .text {
+    font-size: 10px;
+    display: block;
+    width: 100%;
+    height: 12px;
+    margin: auto;
+    text-align: center;
+    padding-top: 3px;
+
+}
+
+#recent_gallery .price {
+    font-size: 10px;
+    display: block;
+    width: 100%;
+    height: 12px;
+    margin: auto;
+    text-align: center;
+    padding-top: 3px;
+    padding-bottom: 10px;
+}
